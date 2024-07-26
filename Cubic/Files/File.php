@@ -10,6 +10,11 @@ class File
 {
     private string $rootFolder;
 
+    public function rootFolder(): string
+    {
+        return $this->rootFolder ?? DIRECTORY_SEPARATOR;
+    }
+
     public function setRootFolder(string $folder): void
     {
         $this->rootFolder = $folder . DIRECTORY_SEPARATOR;
