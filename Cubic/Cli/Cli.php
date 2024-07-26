@@ -5,7 +5,7 @@ namespace Cubic\Cli;
 use Cubic\Exceptions\CommandMissingSignatureException;
 use Cubic\Exceptions\CommandNotFoundException;
 use Cubic\Exceptions\CommandNotSpecifiedException;
-use Cubic\Files\File;
+use Cubic\File;
 
 class Cli
 {

@@ -3,7 +3,6 @@
 namespace Cubic;
 
 use Cubic\Cli\Cli;
-use Cubic\Files\File;
 use Cubic\Providers\Providers as CubicProviders;
 use Providers\Providers as DefaultProviders;
 

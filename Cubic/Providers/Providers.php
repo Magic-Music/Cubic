@@ -3,7 +3,8 @@
 namespace Cubic\Providers;
 
 use Cubic\Cli\Cli;
-use Cubic\Files\File;
+use Cubic\Config;
+use Cubic\File;
 
 class Providers extends Provider
 {
@@ -19,5 +20,6 @@ class Providers extends Provider
     {
         $this->singleton(Cli::class);
         $this->singleton(File::class);
+        $this->singleton(Config::class);
     }
 }

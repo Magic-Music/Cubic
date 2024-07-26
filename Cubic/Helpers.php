@@ -1,7 +1,8 @@
 <?php
 
+use Cubic\Config;
 use Cubic\Container;
-use Cubic\Files\File;
+use Cubic\File;
 
 function create($class)
 {
@@ -42,4 +43,22 @@ function array_wrap(string|array|null $subject): array
 function app_root(): string
 {
     return create(File::class)->rootFolder();
+}
+
+function array_dot(array $array, string $dotKey): mixed
+{
+    foreach (explode('.', $dotKey) as $key) {
+        $array = $array[$key] ?? null;
+
+        if (is_null($array)) {
+            return null;
+        }
+    }
+
+    return $array;
+}
+
+function config($key): mixed
+{
+    return create(Config::class)->get($key);
 }

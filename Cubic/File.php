@@ -1,6 +1,6 @@
 <?php
 
-namespace Cubic\Files;
+namespace Cubic;
 
 use Cubic\Cli\Cli;
 use RecursiveDirectoryIterator;
@@ -31,6 +31,7 @@ class File
                 $files[] = [
                     'path' => str_replace($this->rootFolder, '', $file->getPath()),
                     'file' => $file->getFilename(),
+                    'file_no_extension' => str_replace('.' . $file->getExtension(), '', $file->getFilename()),
                 ];
             }
         }
