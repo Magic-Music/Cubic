@@ -1,8 +1,18 @@
 <?php
 
+use Cubic\Cli\Cli;
 use Cubic\Config;
 use Cubic\Container;
 use Cubic\File;
+
+function dd(...$output): void
+{
+    foreach($output as $out) {
+        Cli::log(print_r($out, 1));
+    }
+
+    exit;
+}
 
 function create($class)
 {
