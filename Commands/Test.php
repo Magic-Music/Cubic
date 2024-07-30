@@ -11,7 +11,6 @@ class Test extends Command
     public string $command = 'test:run';
     public string $signature = "file ?operation --boot|b --string|s --purple|p --pink|P";
 
-    //Dependency injection here!
     public function __construct(private TestService $testService)
     {
     }
