@@ -13,5 +13,5 @@ use Cubic\Cli\Cli;
 require_once 'Cubic/Autoload.php';
 require_once 'Cubic/Helpers.php';
 
-create(Bootstrap::class)->boot(__DIR__);
+create(Bootstrap::class)->boot();
 create(Cli::class)->run();

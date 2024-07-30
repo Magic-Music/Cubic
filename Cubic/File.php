@@ -10,14 +10,14 @@ class File
 {
     private string $rootFolder;
 
+    public function __construct()
+    {
+        $this->rootFolder = dirname(__dir__) . DIRECTORY_SEPARATOR;
+    }
+
     public function rootFolder(): string
     {
         return $this->rootFolder ?? DIRECTORY_SEPARATOR;
-    }
-
-    public function setRootFolder(string $folder): void
-    {
-        $this->rootFolder = $folder . DIRECTORY_SEPARATOR;
     }
 
     public function search(string $folder, string|array|null $extensions = null): array
