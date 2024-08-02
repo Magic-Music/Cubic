@@ -71,11 +71,13 @@ $chef = config('pub.staff.chef');
 - Create command classes within the `Commands` folder and namespace
 - The class should extend `Cubic\Cli\Command`
 - The class should declare `protected` properties for the cli command name and the arguments/options signature
+- The Command signature can accept more than one possible command for the same handler using a pipe separator
 
 ```
-    public string $command = 'app:generate';
+    public string $command = 'app:generate|app:create';
     public string $signature = "param ?optional --option|o --flag|f";
     
+    $cmd = $this->cliCommand; // The actual cli command that invoked the handler
     $arg = argument('optional'); //Returns NULL if not provided
     $opt = option('option'); //Returns value if followed by =value, else true/false
 ```
@@ -91,4 +93,16 @@ argument('param') = "parameter value"
 argument('optional') = "null"
 option('option') = "yes"
 option('flag') = true
+```
+
+#### Caching commands
+Once you have created all the commands you need, you can cache them so that all the command 
+files don't need to be parsed every time a command is invoked.
+
+If you add further commands, or change a command signature or class, you'll need to recache. 
+You can also clear the cache completely.
+
+```
+./run command:cache
+./run command:cache:clear
 ```

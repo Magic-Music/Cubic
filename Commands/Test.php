@@ -8,7 +8,7 @@ use Services\TestService;
 
 class Test extends Command
 {
-    public string $command = 'test:run';
+    public string $command = 'test:run|test:go';
     public string $signature = "file ?operation --boot|b --string|s --purple|p --pink|P";
 
     public function __construct(private TestService $testService)
@@ -18,6 +18,8 @@ class Test extends Command
     public function handle()
     {
         $this->log("Test service: " . $this->testService->getTest());
+
+        $this->log("Command: " . $this->cliCommand);
 
         $this->log("file: " . $this->argument('file'));
         $this->log("operation: " . $this->argument('operation'));
