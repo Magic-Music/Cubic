@@ -50,7 +50,7 @@ function array_wrap(string|array|null $subject): array
     return $subject;
 }
 
-function app_root(?string $folder): string
+function app_root(?string $folder = null): string
 {
     return create(File::class)->rootFolder()
         . ($folder ? (trim($folder, "/\\") . DIRECTORY_SEPARATOR) : '') ;
