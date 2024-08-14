@@ -10,6 +10,7 @@
 use Cubic\Bootstrap;
 use Cubic\Cli\Cli;
 
+require_once 'vendor/autoload.php';
 require_once 'Cubic/Autoload.php';
 require_once 'Cubic/Helpers.php';
 

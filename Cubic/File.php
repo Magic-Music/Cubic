@@ -38,4 +38,21 @@ class File
 
         return $files;
     }
+
+    public function writeStringToFile(string $filename, string $string): void
+    {
+        file_put_contents($this->filesFolder() . $filename, $string);
+    }
+
+    public function writeCsv(string $filename, array $array): void
+    {
+        $handle = fopen($this->filesFolder() . $filename, 'w');
+
+        fputcsv($handle, array_keys($array[0] ?? []));
+        foreach ($array as $row) {
+            fputcsv($handle, $row);
+        }
+
+        fclose($handle);
+    }
 }

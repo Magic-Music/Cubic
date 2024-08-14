@@ -6,6 +6,7 @@
 - CLI command parsing including parameters, arguments and options
 - CLI Logging
 - Config system
+- File system functions
 - Helper functions
 
 Much of the framework takes its inspiration from Laravel but without the weight of the full framework.
@@ -13,6 +14,8 @@ Much of the framework takes its inspiration from Laravel but without the weight 
 ### Installation
 No installation is necessary, there are no dependencies to download. 
 Simply copy the contents of the repo to an empty folder and begin building your project.
+
+(You will likely want to delete the demonstration `Commands/Test.php` and `Services/TestService.php` files)
 
 ### Service container
 - Only required for interface-to-concrete bindings and singleton declaration

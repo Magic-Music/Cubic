@@ -13,6 +13,10 @@ class Autoload
 
     public function autoload(string $class): void
     {
-        include $class . '.php';
+
+        $file = $class . '.php';
+        if (file_exists($file)) {
+            require $file;
+        }
     }
 }
