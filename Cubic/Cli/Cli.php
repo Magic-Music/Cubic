@@ -133,6 +133,7 @@ class Cli
 
                 foreach(explode('|', $commands) as $command) {
                     $this->commands[$command] = $class;
+                    $this->commands[$this->getCommandAbbreviation($command)] = $class;
                 }
             }
         }
@@ -162,6 +163,17 @@ class Cli
         );
 
         return $this->commands[$command];
+    }
+
+    private function getCommandAbbreviation(string $command): string
+    {
+        $parts = explode(':', $command);
+        array_walk(
+            $parts,
+            fn(&$part) => $part = substr($part, 0, 1)
+        );
+
+        return implode(':', $parts);
     }
 
     /**
