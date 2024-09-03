@@ -24,6 +24,7 @@ class File
     {
         $files = [];
         $extensions = array_wrap($extensions);
+        $folder = str_replace('\\', DIRECTORY_SEPARATOR, $folder);
 
         $iterator = new RecursiveDirectoryIterator($this->rootFolder . $folder);
         foreach(new RecursiveIteratorIterator($iterator) as $file) {

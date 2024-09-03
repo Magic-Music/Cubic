@@ -14,7 +14,7 @@ class Autoload
     public function autoload(string $class): void
     {
 
-        $file = $class . '.php';
+        $file = getcwd() . '/' . $class . '.php';
         if (file_exists($file)) {
             require $file;
         }

@@ -123,7 +123,9 @@ class Cli
 
         try {
             foreach ($files as $file) {
-                $class = $file['path'] . '\\' . str_replace('.php', '', $file['file']);
+                $class = str_replace('/', '\\',
+                    $file['path'] . '\\' . str_replace('.php', '', $file['file'])
+                );
                 $commands = get_class_vars($class)['command'] ?? null;
 
                 throw_if(
