@@ -7,11 +7,16 @@ use Cubic\File;
 
 function dd(...$output): void
 {
+    dump(...$output);
+
+    exit;
+}
+
+function dump(...$output): void
+{
     foreach($output as $out) {
         Cli::log(print_r($out, 1));
     }
-
-    exit;
 }
 
 function create($class)

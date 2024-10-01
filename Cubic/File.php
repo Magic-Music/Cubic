@@ -20,6 +20,11 @@ class File
         return $this->rootFolder ?? DIRECTORY_SEPARATOR;
     }
 
+    public function filesFolder(): string
+    {
+        return $this->rootFolder . "Files" . DIRECTORY_SEPARATOR;
+    }
+
     public function search(string $folder, string|array|null $extensions = null): array
     {
         $files = [];
@@ -45,11 +50,12 @@ class File
         file_put_contents($this->filesFolder() . $filename, $string);
     }
 
-    public function writeCsv(string $filename, array $array): void
+    public function writeCsv(string $filename, array $array, ?array $headers = null): void
     {
         $handle = fopen($this->filesFolder() . $filename, 'w');
 
-        fputcsv($handle, array_keys($array[0] ?? []));
+        fputcsv($handle, $headers ?? (array_keys($array[0] ?? [])));
+
         foreach ($array as $row) {
             fputcsv($handle, $row);
         }
